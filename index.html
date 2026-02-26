@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="DVE.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1" animation-name="Opentray" camera-orbit="64.47deg 72.41deg 39.14m" field-of-view="30deg" id="gear">
+      
+<button class="Hotspot" slot="hotspot-1" data-surface="29 0 49 51 50 0.384 0.344 0.272" data-visibility-attribute="visible" onMouseOver="addhotspot1()"  onMouseOut="removehotspot1()">
+          <div class="HotspotAnnotation" id="hotspot1" style="visibility:hidden">Compost Cover</div></button>
+
+<button class="Hotspot" slot="hotspot-2" data-surface="27 0 263 264 267 0.631 0.362 0.007" data-visibility-attribute="visible" onMouseOver="addhotspot2()"  onMouseOut="removehotspot2()">
+          <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Handle</div></button>
+
+<button class="Hotspot" slot="hotspot-3" data-surface="18 0 626 625 560 0.741 0.094 0.165" data-visibility-attribute="visible" onMouseOver="addhotspot3()"  onMouseOut="removehotspot3()">
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Moulding trays</div></button>
+
+<button class="Hotspot" slot="hotspot-4" data-surface="13 0 6517 6533 6577 0.005 0.788 0.207" data-visibility-attribute="visible" onMouseOver="addhotspot4()"  onMouseOut="removehotspot4()">
+          <div class="HotspotAnnotation" id="hotspot4" style="visibility:hidden">Drying Table</div>
+      </button>
+
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+
+<div style="position:absolute; bottom:0px; right:100px">
+  <button onClick="setOrbit('90.35deg 87.94deg 39.14m')">Front</button>
+  <button onClick="setOrbit('181.4deg 88.65deg 39.14m')">Right</button>
+  <button onClick="setOrbit('-2.365deg 88.89deg 39.14m')">Left</button>
+  <button onClick="setOrbit('90.34deg 9.125deg 39.14m')">Top</button>
+  <button onClick="setOrbit('-90.13deg 84.89deg 39.14m')">Back</button>
+  </div>
+
+<div style="position:absolute; bottom:0px; left:200px">
+  <div>Variant:
+  <button onClick="VBtn01()">V1</button>
+  <button onClick="VBtn02()">V2</button>
+  <button onClick="VBtn03()">V3</button>
+  </div>
+  </div>
+
+  <div class="controls" style="position: absolute; bottom: 0px; left: 600px"
+  <div>Animation:
+  <button id="default1Btn" onClick="Btn01()">Handleturn
+  </button>
+  <button id="default2Btn" onClick="Btn02()">Opentray
+  </button>
+  <button id="default3Btn" onClick="Btn03()">Exploded
+  </button>
+  <button id="pauseBtn" onClick="pauseAnimation()">Pause Animation
+  </button>
+  </div>
+  </div>
+
+<div style="position:absolute; top:24px; left:170px">
+
+<div class="viewer-container">
+  <model-viewer 
+    src="your-model.glb" 
+    camera-controls 
+    auto-rotate 
+    ar>
+  </model-viewer>
+
+  <img src="northface-logo.png" alt="The North Face Logo" class="brand-logo">
+</div>
+
+    </model-viewer>  
+
+
+<script>
+  function Btn01()
+  {document.getElementById('gear').pause();
+  document.getElementById('gear').animationName = "Handleturn";
+  document.getElementById('gear').play(); }
+  function Btn02()
+  {document.getElementById('gear').pause();
+  document.getElementById('gear').animationName = "Opentray";
+  document.getElementById('gear').play(); }
+  function Btn03()
+  {document.getElementById('gear').pause();
+  document.getElementById('gear').animationName = "Exploded";
+  document.getElementById('gear').play(); }
+  function pauseAnimation()
+  { document.getElementById('gear').pause(); }
+  </script>
+
+<script>
+    function VBtn01() {
+  document.getElementById('gear').variantName = "V1";  }
+  function VBtn02() {
+  document.getElementById('gear').variantName = "V2";}
+  function VBtn03() {
+  document.getElementById('gear').variantName = "V3";}
+  </script>
+
+<script>
+  function setOrbit(orbit)
+  {document.getElementById('gear').cameraOrbit = orbit;}
+  </script>
+
+<script>
+  function addhotspot1(){
+  document.getElementById("hotspot1").style.visibility="visible"
+  }
+  function removehotspot1(){
+  document.getElementById("hotspot1").style.visibility="hidden";
+  }
+function addhotspot2(){
+  document.getElementById("hotspot2").style.visibility="visible"
+  }
+  function removehotspot2(){
+  document.getElementById("hotspot2").style.visibility="hidden";
+  }
+function addhotspot3(){
+  document.getElementById("hotspot3").style.visibility="visible"
+  }
+  function removehotspot3(){
+  document.getElementById("hotspot3").style.visibility="hidden";
+  }
+function addhotspot4(){
+  document.getElementById("hotspot4").style.visibility="visible"
+  }
+  function removehotspot4(){
+  document.getElementById("hotspot4").style.visibility="hidden";
+  }
+
+
+  </script>
+
+
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>
